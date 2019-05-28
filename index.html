@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="title icon" type="image/jpg" href="resources/images/icon.PNG" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap" rel="stylesheet">
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="resources/stylesheets/main.css">
+    <title>blog</title>
+</head>
+<body>
+    <div id="page-container">
+        <div id="content-wrap">
+            <nav>
+                <div class="row">
+                    <ul>
+                        <a class="home-link">BLOG</a>
+                        <!-- <img class="icon-home" src="resources/images/icon.PNG" alt="icon"> -->
+                    </ul>
+                    <ul class="main-nav">
+                        <li>
+                            <a class="signup-link login-link" href="#">login</a>
+                        </li>
+                        <li >
+                            <a class="signup-link register-link" href="#">signup</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            
+            <div class="bg">
+                <div class="row text-row">
+                    <div class="cockpit">
+                        <h2 class="blogs-heading">
+                            blogs
+                        </h2>
+                        <div class="search-container">
+                            <input class="search-input" type="text" placeholder="search" name="search">
+                            <button class="search-btn">search</button>
+                        </div>
+                
+                    </div>
+                
+                    <div class="blogs-container">
+                        <!-- <div class="other-blog">
+                                            my web dev roadmap
+                                        </div>
+                                        <div class="other-blog">
+                                            top 5 languages
+                                        </div> -->
+                    </div>
+                
+                    <div class="pagination">
+                        <div class="button-small prev">
+                            prev
+                        </div>
+                        <div class="button-small">
+                            <span class="pageNumber">1</span> of <span class="total-pages">?</span>
+                        </div>
+                        <div class="button-small next">
+                            next
+                        </div>
+                    </div>
+                </div>
+                
+                <section class="section-blog">
+                    <div class="row text-row bllog">
+                        <!-- where the blog goes -->
+                
+                    </div>
+                </section>
+
+            </div>
+                
+            <div class="section-forms register row">
+                <div class="close-register">x</div>
+                <h2>
+                    register
+                </h2>
+                <div class="form">
+                    <input type="text" placeholder="name">
+                    <input type="email" placeholder="e-mail">
+                    <input type="password" placeholder="password">
+                    <input type="text" placeholder="confirm-password">
+                    <button>register</button>
+                </div>
+            </div>
+            <div class="section-forms login row" id="login">
+                <div class="close-login">x</div>
+                <h2>
+                    login
+                </h2>
+                <div class="form">
+                    <!-- <label for="email">email</label> -->
+                    <input id="email" type="email" placeholder="e-mail">
+                    <input type="password" placeholder="password">
+                    <button>login</button>
+                </div>
+            </div>
+
+
+            <footer id="footer">
+                    built by NT. Mosia
+            </footer>
+    </div>
+
+    <script src="./vendors/jquery-3.3.1.min.js"></script>
+    <script src="vendors/jquery.waypoints.min.js"></script>
+    <script src="./resources/js/main.js"></script>
+</body>
+</html>
