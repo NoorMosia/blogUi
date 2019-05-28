@@ -100,19 +100,19 @@ const views = (function() {
         },
         renderBlogTitles: (blogs, start, itemsPerPage = 4) => {
             const found = [...blogs];
-            // if (seletors.blogsContainer.childElementCount < 2) {
-                seletors.blogsContainer.textContent = '';
-                found.splice(start, itemsPerPage).forEach(blog => {
-                    seletors.blogsContainer.insertAdjacentHTML("afterbegin", `
-                            <a class="other-blog" id="${blog._id}" href="#blogg" 
+            seletors.blogsContainer.textContent = '';
+
+            found.splice(start, itemsPerPage).forEach(blog => {
+                
+                seletors.blogsContainer.insertAdjacentHTML("afterbegin", `
+                        <div class="other-blog" id="${blog._id}" 
                             style="background-image: 
                             linear-gradient(rgba(37, 37, 37, 0.853), rgba(27, 27, 27, 0.737)), 
                             url('${blog.imageUrl}')";>
                                 ${blog.title}
-                            </a>`
-                    )
-                });
-            // }
+                        </div>`
+                )
+            });
         },
         clearBlogArea: () => {
             seletors.blogText.style.opacity = '0';
@@ -168,10 +168,10 @@ const views = (function() {
                     <h2 class="heading">
                         recommended
                     </h2>
-                    <a href="#blogg">
+                    <div>
                         <h1 class="recommended-blog__title" id="recommended-blog__title">
                         </h1>
-                    </a>`
+                    </div>`
         },
         renderComments: (comments) => {
             comments.forEach(comment => {
