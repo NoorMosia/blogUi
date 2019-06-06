@@ -350,6 +350,9 @@ input {
         text-align: center;
         float: none;
     }
+
+    .blogs-heading {
+        display: none;
+    }
     
-    .delete {    padding-top: 1.6rem;    }
 }

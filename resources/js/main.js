@@ -3,7 +3,7 @@ const models = (function () {
         constructor() { }
 
         getAllBlogs() {
-            return fetch('https://mosia-blog.herokuapp.com', { method: 'GET' })
+            return fetch('http://localhost:8080', { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
@@ -17,7 +17,7 @@ const models = (function () {
         };
 
         getOneBlog(id) {
-            return fetch(`https://mosia-blog.herokuapp.com/blogs/${id}`, { method: 'GET' })
+            return fetch(`http://localhost:8080/blogs/${id}`, { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
@@ -48,8 +48,8 @@ const models = (function () {
 
 const views = (function() {
     const DOMStrings = {
-        // rootServer: 'http://localhost:8080',
-        rootServer: 'https://mosia-blog.herokuapp.com',
+        rootServer: 'http://localhost:8080',
+        // rootServer: 'https://mosia-blog.herokuapp.com',
         home: '.home-link',
         blogsHeading: '.blogs-heading',
         blogTitle: '.blog__title',
@@ -228,19 +228,6 @@ const controller = (function (models, views) {
                 views.clearBlogArea();
                 selectors.blogText.insertAdjacentHTML('afterbegin', views.getBlogText(res))
                 views.showBlog();
-                return fetch(`${DOM.rootServer}/blog/` + res._id + '/comments', { method: 'GET' })
-            })
-            .then(result => {
-                return result.json();
-            })
-            .then(foundComments => {
-                const comments = foundComments.comments.comments;
-                document.querySelector(DOM.recommendedBlog).textContent = 'how to kill two birds with one stone';
-                if (comments.length > 0) {
-                    views.renderComments(comments);
-                } else {
-                    document.querySelector(DOM.comments).innerHTML = `<h1 class="no-comments">no comments yet</h1>`
-                }
             })
             .catch(err => {
                 console.log(err);
