@@ -3,7 +3,7 @@ const models = (function () {
         constructor() { }
 
         getAllBlogs() {
-            return fetch('http://localhost:8080', { method: 'GET' })
+            return fetch('https://mosia-blog.herokuapp.com', { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
@@ -17,7 +17,7 @@ const models = (function () {
         };
 
         getOneBlog(id) {
-            return fetch(`http://localhost:8080/blogs/${id}`, { method: 'GET' })
+            return fetch(`https://mosia-blog.herokuapp.com/blogs/${id}`, { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
@@ -48,7 +48,8 @@ const models = (function () {
 
 const views = (function() {
     const DOMStrings = {
-        rootServer: 'http://localhost:8080',
+        // rootServer: 'http://localhost:8080',
+        rootServer: 'https://mosia-blog.herokuapp.com',
         home: '.home-link',
         blogsHeading: '.blogs-heading',
         blogTitle: '.blog__title',
@@ -140,30 +141,6 @@ const views = (function() {
                         
                         <a class="delete" id="close">close</a>
                     </p>
-            
-                    <h2 class="heading">
-                        comments
-                    </h2>
-                    <div class="section-comments">
-                        <div class="comments">
-                            <h3 class="commenter"></h3>
-                            <p class="comment-text">
-                            </p>
-                
-                            <h3 class="commenter"></h3>
-                            <p class="comment-text">
-                            </p>
-                        </div>
-
-                        <form action="#" class="comment-form">
-                            <!-- <input type="text" placeholder="Display Name"/>
-                                        <input type="text" placeholder="E-mail"/> -->
-                            <textarea name="comment" id="comment" placeholder="Leave a comment" cols="50"></textarea>
-                            <button class="btn btn-medium btn-default">
-                                post
-                            </button>
-                        </form>
-                    </div>
 
                     <h2 class="heading">
                         recommended
@@ -220,7 +197,7 @@ const controller = (function (models, views) {
             })
     }
     const fetchSearchBlogs = (string) => {
-        return fetch(`http://localhost:8080/blogs/search?searchId=${string}`, { method: 'GET' })
+        return fetch(`${DOM.rootServer}/blogs/search?searchId=${string}`, { method: 'GET' })
             .then((found) => {
                 return found.json()
             })
@@ -251,7 +228,7 @@ const controller = (function (models, views) {
                 views.clearBlogArea();
                 selectors.blogText.insertAdjacentHTML('afterbegin', views.getBlogText(res))
                 views.showBlog();
-                return fetch('http://localhost:8080/blog/' + res._id + '/comments', { method: 'GET' })
+                return fetch(`${DOM.rootServer}/blog/` + res._id + '/comments', { method: 'GET' })
             })
             .then(result => {
                 return result.json();
@@ -364,48 +341,6 @@ const controller = (function (models, views) {
         document.querySelector('.pagination').addEventListener('click', () => {
             paginationLogic();
         })
-
-
-        document.querySelector('.login-link').addEventListener('click', () => {
-            document.querySelector('.login').style.display = 'block';
-            document.querySelector('.bg'). style.opacity = '.3';
-            setTimeout(() => {
-                document.querySelector('.login').style.opacity = '1';
-            }, 100);
-            
-
-            if (document.querySelector('.register').style = 'block') {
-                document.querySelector('.register').style.display = 'none';
-            }
-        });
-        document.querySelector('.register-link').addEventListener('click', () => {
-            document.querySelector('.register').style.display = 'block';
-            document.querySelector('.bg').style.opacity = '.3';
-
-            setTimeout(() => {
-                document.querySelector('.register').style.opacity = '1';
-            }, 100);
-
-            if (document.querySelector('.login').style = 'block') {
-                document.querySelector('.login').style.display = 'none';
-            }
-        });
-
-        document.querySelector('.close-login').addEventListener('click', () => {
-            setTimeout(() => {
-                document.querySelector('.login').style.display = 'none';
-            }, 500);
-            document.querySelector('.login').style.opacity = '0';
-            document.querySelector('.bg').style.opacity = '1';
-        });
-        document.querySelector('.close-register').addEventListener('click', () => {
-            setTimeout(() => {
-                document.querySelector('.register').style.display = 'none';
-            }, 500);
-            document.querySelector('.register').style.opacity = '0';
-            document.querySelector('.bg').style.opacity = '1';
-        })
-
 
         document.querySelector('.blogs-heading').addEventListener('click', () => {
             views.clearBlogAreaAsync();

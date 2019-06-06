@@ -80,23 +80,12 @@ nav::after{
     width: 2rem;
 }
 
-.main-nav {    float: right;    }
 
 .main-nav li {
     display: inline;
     list-style: none;
     text-transform: capitalize;
     letter-spacing: 1px;
-}
-
-.main-nav li a {
-    text-decoration: none;
-    color: rgb(255, 93, 44);
-}
-
-.main-nav li a.signup-link {
-    padding: .4rem 1rem;
-    border: 1px solid rgb(255, 93, 44);
 }
 
 .cockpit {    padding-top: 4rem;    }
@@ -276,39 +265,6 @@ img {
     margin-top: 3rem;
 }
 
-.section-comments {
-    margin: 2rem 0;
-    padding: 2rem 1rem;
-    border-top: 1px dotted rgb(255, 65, 7);
-    border-bottom: 1px dotted rgb(255, 65, 7);
-}
-
-.comments {    padding: 1rem;   }
-
-.comments .commenter {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    padding-left: 5rem;
-}
-
-.comment-text {
-    font-size: 1.6rem;
-    padding-left: 5rem;
-    margin-bottom: 3rem;
-}
-
-.comment-form textarea {
-    width: 100%;
-    height: 10rem;
-    border: 1px solid rgb(255, 65, 7);
-    border-radius: 4px;
-    padding: .5rem;
-    font-size: 2rem;
-    margin-bottom: 1rem;
-}
-
-.comment-form {    margin-left: 1rem;   }
-
 input {
     width: 48%;
     padding: .5rem;
@@ -354,72 +310,6 @@ input {
     cursor: pointer;
 }
 
-.section-forms {
-    width: 60rem;
-    margin: 0 auto;
-    top: 25rem;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgb(255, 213, 151);
-    padding: 4rem;
-    border-radius: 3px;
-    position: absolute;
-    backface-visibility: initial;
-    -webkit-backface-visibility: initial;
-}
-
-.form button{
-    display: block;
-    margin: 0 auto;
-    border: 0;
-    width: 60%;
-    padding: .5rem;
-    background-color: rgb(255, 138, 60);
-    color: #fff;
-    text-transform: uppercase;
-    font-size: 2rem;
-    border-radius: 3px;
-    box-shadow: 1px 1px 2px rgb(252, 182, 135);
-    font-family: inherit;
-}
-
-.section-forms h2 {
-    float: none;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 3rem;
-}
-
-.section-forms input {
-    margin: 2rem auto;
-    display: block;
-    width: 60%;
-    font-family: inherit;
-}
-
-.login,
-.register {
-    display: none;
-    opacity: 0;
-    transition: opacity .5s;
-    font-size: 2rem;
-}
-
-.close-login,
-.close-register {
-    font-size: 2rem;
-    width: 4rem;
-    height: 4rem;
-    background-color: rgb(255, 104, 104);
-    color: #fff;
-    border-radius: 50%;
-    padding: .4rem 1.6rem;
-    top: -1rem;
-    right: -1rem;
-    position: absolute;
-    cursor: pointer;
-}
-
 @media only screen and (max-width: 1200px){
     .delete {
         bottom: 10%;
@@ -436,10 +326,6 @@ input {
 
 @media only screen and (max-width: 680px){
     .row {    max-width: 96%;    }
-    
-    .section-forms {    width: 90%;    }
-
-    .section-forms input {    width: 96%;    }
 
     .search-container input {    width: 60%;    }
 
