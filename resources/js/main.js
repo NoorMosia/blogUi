@@ -1,4 +1,4 @@
-const server = 'https://mosia-blog.herokuapp.com';
+const server = 'http://localhost:8080';
 
 const models = (function () {
     class Blogs {
@@ -190,7 +190,6 @@ const controller = (function (models, views) {
             })
     }
     const fetchSearchBlogs = (string) => {
-        console.log("fetching");
         return fetch(`${DOM.rootServer}/blogs/search?searchId=${string}`, { method: 'GET' })
             .then((found) => {
                 return found.json()
@@ -204,7 +203,6 @@ const controller = (function (models, views) {
                 getBlogs(0);
                 selectors.pageNumber.textContent = '1';
                 paginationLogic();
-                console.log("fetched")
             })
             .catch(err => {
                 console.log(err)

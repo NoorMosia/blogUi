@@ -185,7 +185,7 @@ img {
 .text-row {    max-width: 64rem;    }
 
 .other-blog {
-    font-size: 2.6rem;
+    font-size: 2rem;
     color: rgb(255, 65, 7);
     padding: 2rem;
     margin-top: 2rem;
@@ -320,6 +320,11 @@ input {
     .delete {
         bottom: 10%;
         right: 10%;
+    }
+
+    
+    .other-blog {
+        font-size: 2rem;
     }
 }
 
