@@ -1,4 +1,4 @@
-const server = 'mosia-blog.herukuapp.com';
+const server = 'mosia-blog.herokuapp.com';
 
 const models = (function () {
     class Blogs {
