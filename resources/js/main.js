@@ -1,4 +1,4 @@
-const server = 'http://localhost:8080';
+const server = 'https://mosia-blog.herokuapp.com';
 
 const models = (function () {
     class Blogs {
