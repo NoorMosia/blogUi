@@ -172,9 +172,9 @@ nav::after{
 }
 
 .blog__text {
-    font-size: 2rem;
+    font-size: 1.8rem;
     margin-bottom: 3rem;
-    line-height: 140%;
+    line-height: 150%;
 }
 
 img {
@@ -338,7 +338,7 @@ input {
 
     .recommended-blog__title {    width: 90%;    }
         
-    .blog__text {    font-size: 1.8rem;    }
+    .blog__text {    font-size: 1.6rem;    }
     
     .blogs-heading {
         width: 96%;
@@ -350,8 +350,5 @@ input {
         float: none;
     }
 
-    .blogs-heading {
-        display: none;
-    }
-    
+    .blogs-heading {    display: none;    }
 }

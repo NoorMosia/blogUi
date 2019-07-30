@@ -1,9 +1,11 @@
+const server = 'mosia-blog.herukuapp.com';
+
 const models = (function () {
     class Blogs {
         constructor() { }
 
         getAllBlogs() {
-            return fetch('http://localhost:8080', { method: 'GET' })
+            return fetch(server, { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
@@ -17,7 +19,7 @@ const models = (function () {
         };
 
         getOneBlog(id) {
-            return fetch(`http://localhost:8080/blogs/${id}`, { method: 'GET' })
+            return fetch(`${server} + ${id}`, { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
@@ -48,8 +50,7 @@ const models = (function () {
 
 const views = (function() {
     const DOMStrings = {
-        rootServer: 'http://localhost:8080',
-        // rootServer: 'https://mosia-blog.herokuapp.com',
+        rootServer: server,
         home: '.home-link',
         blogsHeading: '.blogs-heading',
         blogTitle: '.blog__title',
@@ -149,16 +150,6 @@ const views = (function() {
                         <h1 class="recommended-blog__title" id="recommended-blog__title">
                         </h1>
                     </div>`
-        },
-        renderComments: (comments) => {
-            comments.forEach(comment => {
-                com.insertAdjacentHTML('afterbegin', `  
-                <h3 class="commenter">${comment.creator}</h3>
-                <p class="comment-text">
-                    ${comment.text}
-                </p>`
-                )
-            })
         }
     }
 
@@ -186,17 +177,20 @@ const controller = (function (models, views) {
     }
 
     const fetchBlogs = () => {
+        console.log("fetching");
         return models.createNewBlogObject()
             .then((found) => {
                 state.blogs = found;
                 state.blogsCount = found.length;
                 views.setTotalPages(state.blogsCount / itemsPerPage);
+                console.log("fetched")
             })
             .catch(err => {
                 console.log(err)
             })
     }
     const fetchSearchBlogs = (string) => {
+        console.log("fetching");
         return fetch(`${DOM.rootServer}/blogs/search?searchId=${string}`, { method: 'GET' })
             .then((found) => {
                 return found.json()
@@ -210,6 +204,7 @@ const controller = (function (models, views) {
                 getBlogs(0);
                 selectors.pageNumber.textContent = '1';
                 paginationLogic();
+                console.log("fetched")
             })
             .catch(err => {
                 console.log(err)
@@ -223,11 +218,13 @@ const controller = (function (models, views) {
     }
 
     const getBlog = (id) => {
+        console.log("fetching");
         models.getABlog(id)
             .then(res => {
                 views.clearBlogArea();
                 selectors.blogText.insertAdjacentHTML('afterbegin', views.getBlogText(res))
                 views.showBlog();
+                console.log("fetched")
             })
             .catch(err => {
                 console.log(err);
