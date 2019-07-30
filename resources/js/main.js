@@ -19,7 +19,7 @@ const models = (function () {
         };
 
         getOneBlog(id) {
-            return fetch(`${server} + ${id}`, { method: 'GET' })
+            return fetch(`${server}/blogs/${id}`, { method: 'GET' })
                 .then(results => {
                     return results.json();
                 })
