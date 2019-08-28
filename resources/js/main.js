@@ -1,4 +1,4 @@
-const server = 'https://mosia-blog.herokuapp.com';
+const server = 'http://localhost:8080';
 
 const models = (function () {
     class Blogs {
@@ -102,7 +102,7 @@ const views = (function() {
         },
         renderBlogTitles: (blogs, start, itemsPerPage = 4) => {
             const found = [...blogs];
-            seletors.blogsContainer.textContent = '';
+            seletors.blogsContainer.innerHTML = '';
 
             found.splice(start, itemsPerPage).forEach(blog => {
                 
@@ -118,7 +118,7 @@ const views = (function() {
         },
         clearBlogArea: () => {
             seletors.blogText.style.opacity = '0';
-            seletors.blogText.textContent = '';
+            seletors.blogText.innerHTML = '';
         },
         clearBlogAreaAsync: () => {
             setTimeout(() => {
@@ -177,21 +177,23 @@ const controller = (function (models, views) {
     }
 
     const fetchBlogs = () => {
-        console.log("fetching");
+        document.querySelector('.blogs-loader').innerHTML = '<div class="Loader"></div>';
         return models.createNewBlogObject()
             .then((found) => {
+                document.querySelector('.blogs-loader').innerHTML = '';
                 state.blogs = found;
                 state.blogsCount = found.length;
                 views.setTotalPages(state.blogsCount / itemsPerPage);
-                console.log("fetched")
             })
             .catch(err => {
                 console.log(err)
             })
     }
     const fetchSearchBlogs = (string) => {
+        document.querySelector('.blogs-loader').innerHTML = '<div class="Loader"></div>';
         return fetch(`${DOM.rootServer}/blogs/search?searchId=${string}`, { method: 'GET' })
             .then((found) => {
+                document.querySelector('.blogs-loader').innerHTML = '';
                 return found.json()
             })
             .then(found => {
@@ -216,13 +218,11 @@ const controller = (function (models, views) {
     }
 
     const getBlog = (id) => {
-        console.log("fetching");
         models.getABlog(id)
             .then(res => {
                 views.clearBlogArea();
                 selectors.blogText.insertAdjacentHTML('afterbegin', views.getBlogText(res))
                 views.showBlog();
-                console.log("fetched")
             })
             .catch(err => {
                 console.log(err);
@@ -340,6 +340,7 @@ const controller = (function (models, views) {
 
     return {
         init: () => {
+            document.querySelector('.blogs-container').innerHTML = '<div class="Loader"></div>';
             fetchBlogs()
                 .then(res => {
                     paginationLogic();

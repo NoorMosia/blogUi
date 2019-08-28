@@ -151,7 +151,7 @@ nav::after{
 .recommended-blog__title {
     color: rgb(255, 93, 44);
     color: rgb(255, 113, 70);
-    font-size: 3rem;
+    font-size: 2rem;
     text-align: center;
     padding: 4rem 1rem;
     margin: 3rem 0 2rem 0;
@@ -205,11 +205,16 @@ img {
     animation-fill-mode: backwards;
 }
 
+.titles {   position: relative;  min-height: 14rem; }
+.blog-loader { position: absolute; top: 0;  }
+
 .blogs-container {
     margin: 1rem auto;
     min-height: 14rem;
     transition: opacity .3s;
     opacity: 0;
+    position: absolute;
+    top: 0;
 }
 .blogs-container::after {
     display: block;
@@ -339,9 +344,11 @@ input {
 @media only screen and (max-width: 500px){
     .other-blog {    width: 96%;    }
     
+    
+    .titles {   position: relative;  min-height: 27rem; }
     .blogs-container {    min-height: 26rem;    }
 
-    .recommended-blog__title {    width: 90%;    }
+    .recommended-blog__title {    width: 90%;   }
         
     .blog__text {    font-size: 1.6rem;    }
     
