@@ -213,7 +213,6 @@ img {
     min-height: 14rem;
     transition: opacity .3s;
     opacity: 0;
-    position: absolute;
     top: 0;
 }
 .blogs-container::after {
